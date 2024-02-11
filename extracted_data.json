@@ -1,0 +1,42 @@
+[
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/INFOPRACTICE/providers/Microsoft.Compute/disks/vm2_OsDisk_1_f6379d5597704712bd8136356b1f3783",
+        "type": "Microsoft.Compute/disks",
+        "name": "vm2_OsDisk_1_f6379d5597704712bd8136356b1f3783"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Compute/virtualMachines/vm2",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "vm2"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/networkInterfaces/vm2453",
+        "type": "Microsoft.Network/networkInterfaces",
+        "name": "vm2453"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/networkSecurityGroups/vm2-nsg",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "vm2-nsg"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net",
+        "type": "Microsoft.Network/privateDnsZones",
+        "name": "privatelink.vaultcore.azure.net"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net/virtualNetworkLinks/jwhtjrxjuajc6",
+        "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+        "name": "privatelink.vaultcore.azure.net/jwhtjrxjuajc6"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/publicIPAddresses/vm2-ip",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "name": "vm2-ip"
+    },
+    {
+        "id": "/subscriptions/f97f1556-45cc-49f4-a648-1f4ad9fde44e/resourceGroups/Infopractice/providers/Microsoft.Network/virtualNetworks/cert-vnet",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "cert-vnet"
+    }
+]

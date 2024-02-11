@@ -1,0 +1,12 @@
+policies:
+  - name: notify-vm-region-mismatch
+    description: |
+      Notify when an Azure VM is deployed in a region other than East US.
+    resource: azure.vm
+    filters:
+      - type: value
+        key: location
+        op: not-in
+        value:
+          - eastus
+    

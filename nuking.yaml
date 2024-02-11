@@ -1,0 +1,23 @@
+policies:
+  - name: notify-vm-region-mismatch
+    description: |
+      Notify when an Azure VM is deployed in a region other than East US.
+    resource: azure.vm
+    filters:
+      - type: value
+        key: location
+        op: not-in
+        value:
+          - eastus
+    actions:
+      - type: notify
+        template: default
+        priority_header: '2'
+        subject: Azure VM Deployment Alert
+        from: prashanthireddy.anam@infoservices.com
+        to:
+          - anamprashanthireddy@gmail.com
+        api_key: "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"
+
+
+
