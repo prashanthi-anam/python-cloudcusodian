@@ -1,5 +1,7 @@
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
+from azure.core.exceptions import HttpResponseError
+import json
 
 def list_resources_in_group(subscription_id, resource_group_name):
     credential = DefaultAzureCredential()
@@ -16,13 +18,25 @@ def get_resource_metadata(subscription_id, resource_group_name, resource_name, r
     resource_client = ResourceManagementClient(credential, subscription_id)
 
     print(f"Fetching metadata for resource '{resource_name}'...")
-    resource = resource_client.resources.get_by_id(
-        f"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/{resource_type}/{resource_name}",
-        "2022-03-01"  # Use a supported API version
-    )
+    try:
+        resource = resource_client.resources.get_by_id(
+            f"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/{resource_type}/{resource_name}",
+            "2023-05-01"  # Use a supported API version for 'Microsoft.Storage/storageAccounts'
+        )
+        
+        metadata = {
+            "id": resource.id,
+            "name": resource.name,
+            "type": resource.type,
+            "location": resource.location,
+            "tags": resource.tags,
+            "properties": resource.properties
+        }
 
-    return resource
-
+        return metadata
+    except HttpResponseError as ex:
+        print(f"Error retrieving metadata: {ex}")
+        return None
 
 def main():
     subscription_id = 'f97f1556-45cc-49f4-a648-1f4ad9fde44e'
@@ -40,8 +54,9 @@ def main():
 
     # Retrieve metadata for the selected resource
     resource_metadata = get_resource_metadata(subscription_id, resource_group_name, selected_resource_name, selected_resource_type)
-    print("\nMetadata for Selected Resource:")
-    print(resource_metadata)
+    if resource_metadata:
+        print("\nMetadata for Selected Resource:")
+        print(json.dumps(resource_metadata, indent=4))
 
 if __name__ == "__main__":
     main()
